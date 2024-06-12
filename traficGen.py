@@ -38,12 +38,12 @@ def random_permutation_matrix_no_dig(size_of_perm):
 
     return permutation_matrix
 
-n=64
-start_time = time.time()
-perm_matrix = traffic_generator(100,20,0.5,n,0.01)
-end_time = time.time()
-elapsed_time = end_time - start_time
-print(f"Elapsed time: {elapsed_time} seconds")
+# n=64
+# start_time = time.time()
+# perm_matrix = traffic_generator(100,20,0.5,n,0.01)
+# end_time = time.time()
+# elapsed_time = end_time - start_time
+# print(f"Elapsed time: {elapsed_time} seconds")
 
 #print(perm_matrix)
 #for i in range(n):
