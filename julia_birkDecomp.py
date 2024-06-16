@@ -7,7 +7,7 @@ class birkDecomp:
         self.jl = juliacall.newmodule("SomeName")
         self.jl.seval("using BirkhoffDecomposition")
 
-    def birk_decomp(self, mat, epsilon=0.00001):
+    def birk_decomp(self, mat, epsilon=0.00000001):
         return self.jl.birkdecomp(mat, epsilon)
 
 

@@ -6,18 +6,18 @@ def traffic_generator(nl, ns, cl, n, sigma):
     cs = 1 - cl
     large_ratio = cl / nl
     if nl > 0 and cl > 0:
-        large_flows = np.random.normal(large_ratio, sigma*(large_ratio), nl)
+        large_flows = np.random.normal(large_ratio, sigma*(large_ratio), int(nl))
     else:
-        large_flows = np.zeros(nl)
+        large_flows = np.zeros(int(nl))
     if nl > 0 and cl > 0:
-        small_flows = np.random.normal(cs / ns, sigma*(cs / ns), ns)
+        small_flows = np.random.normal(cs / ns, sigma*(cs / ns), int(ns))
     else:
         small_flows = np.zeros(ns)
     largeFlowsMatrix = np.zeros((n, n))
-    for i in range(nl):
+    for i in range(int(nl)):
         largeFlowsMatrix += large_flows[i]*random_permutation_matrix_no_dig(n)
     small_flows_matrix = np.zeros((n, n))
-    for i in range(ns):
+    for i in range(int(ns)):
         small_flows_matrix += small_flows[i]*random_permutation_matrix_no_dig(n)
     new_matrix = small_flows_matrix+largeFlowsMatrix
     new_matrix = n*new_matrix/np.sum(new_matrix)
