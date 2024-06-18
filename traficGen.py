@@ -9,7 +9,7 @@ def traffic_generator(nl, ns, cl, n, sigma):
         large_flows = np.random.normal(large_ratio, sigma*(large_ratio), int(nl))
     else:
         large_flows = np.zeros(int(nl))
-    if nl > 0 and cl > 0:
+    if ns > 0 and cs > 0:
         small_flows = np.random.normal(cs / ns, sigma*(cs / ns), int(ns))
     else:
         small_flows = np.zeros(ns)

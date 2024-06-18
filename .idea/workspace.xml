@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf27e421-b6db-4410-9b1c-1d71c036713f" name="Changes" comment="minor fix">
-      <change afterPath="$PROJECT_DIR$/evaluation_Functions.py" afterDir="false" />
+    <list default="true" id="bf27e421-b6db-4410-9b1c-1d71c036713f" name="Changes" comment="added the evluation function code">
+      <change afterPath="$PROJECT_DIR$/multi_proc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scrap_book.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluationFunctions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/julia_birkDecomp.py" beforeDir="false" afterPath="$PROJECT_DIR$/julia_birkDecomp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation_Functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation_Functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/traficGen.py" beforeDir="false" afterPath="$PROJECT_DIR$/traficGen.py" afterDir="false" />
     </list>
@@ -56,6 +56,8 @@
     "Python.juliaCodeImport.executor": "Run",
     "Python.julia_imprting.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.multi_proc.executor": "Run",
+    "Python.scrap_book.executor": "Run",
     "Python.traficGen.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
@@ -123,7 +125,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718291592057</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added the evluation function code">
+      <option name="closed" value="true" />
+      <created>1718548631589</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1718548631589</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -132,17 +142,7 @@
     <MESSAGE value="added julia_birkDecomp.py" />
     <MESSAGE value="added evaluationFunctions.py file with some functions" />
     <MESSAGE value="minor fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor fix" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/evaluation_Functions.py</url>
-          <line>69</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="added the evluation function code" />
+    <option name="LAST_COMMIT_MESSAGE" value="added the evluation function code" />
   </component>
 </project>
