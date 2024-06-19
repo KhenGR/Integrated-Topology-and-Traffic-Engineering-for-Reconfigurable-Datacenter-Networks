@@ -4,8 +4,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 from multi_proc import  *
 import time
-#import multiprocessing
+import json
 
+#import multiprocessing
+class json_serialize(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, np.integer):
+            return int(obj)
+        if isinstance(obj, np.floating):
+            return float(obj)
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        return json.JSONEncoder.default(self, obj)
 
 
 if __name__ == '__main__':
@@ -14,10 +24,14 @@ if __name__ == '__main__':
     x_values = power_range(4, 4 *n *n,1.3)
     net = network_eval(n=n)
     start_time = time.perf_counter()
-    full_results = multi_run_tests_flow_number(net, 0.2,0.7,x_values,7,28)
+    full_results = multi_run_tests_flow_number(net, 0.2,0.7,x_values,4,28)
     end_time = time.perf_counter()
     elapsed_time = end_time - start_time
     print(f"Elapsed time: {elapsed_time} seconds")
+    with open(f"test_res\\n64_test_total_flows_LR02_LLR07_date1906.json", 'w') as f:
+        json.dump(full_results, f, sort_keys=True, indent=4,
+                  ensure_ascii=False,cls=json_serialize)
+
     results=full_results["mean_res"]
     name_list = ("DA","ROT","PIV")
     for i, row in enumerate(np.transpose(results)):

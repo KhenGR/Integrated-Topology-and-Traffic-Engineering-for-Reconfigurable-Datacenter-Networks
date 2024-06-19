@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf27e421-b6db-4410-9b1c-1d71c036713f" name="Changes" comment="added multiprocessing function to have faster tests">
+    <list default="true" id="bf27e421-b6db-4410-9b1c-1d71c036713f" name="Changes" comment="added multiprocessing function to have faster tests. fixed bugs">
+      <change afterPath="$PROJECT_DIR$/plotter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run_tets_script.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation_Functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation_Functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/julia_birkDecomp.py" beforeDir="false" afterPath="$PROJECT_DIR$/julia_birkDecomp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/multi_proc.py" beforeDir="false" afterPath="$PROJECT_DIR$/multi_proc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scrap_book.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrap_book.py" afterDir="false" />
@@ -57,6 +57,7 @@
     "Python.julia_imprting.executor": "Run",
     "Python.main.executor": "Run",
     "Python.multi_proc.executor": "Debug",
+    "Python.plotter.executor": "Run",
     "Python.scrap_book.executor": "Run",
     "Python.traficGen.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -141,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718721539577</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added multiprocessing function to have faster tests. fixed bugs">
+      <option name="closed" value="true" />
+      <created>1718783587798</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1718783587798</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -152,20 +161,16 @@
     <MESSAGE value="minor fix" />
     <MESSAGE value="added the evluation function code" />
     <MESSAGE value="added multiprocessing function to have faster tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="added multiprocessing function to have faster tests" />
+    <MESSAGE value="added multiprocessing function to have faster tests. fixed bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="added multiprocessing function to have faster tests. fixed bugs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/multi_proc.py</url>
-          <line>37</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>12</line>
-          <option name="timeStamp" value="33" />
+          <url>file://$PROJECT_DIR$/run_tets_script.py</url>
+          <line>4</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

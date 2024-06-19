@@ -3,7 +3,8 @@ from traficGen import *
 from julia_birkDecomp import birkDecomp
 from multi_proc import  *
 from traficGen import *
-
+import json
+import  os
 # large_load_ratio=0.7
 # total_flows=2822
 # large_number_ratio=0.2
@@ -26,6 +27,16 @@ from traficGen import *
 # large_load_ratio=0.8
 # perm_matrix = traffic_generator(large_number, small_number, large_load_ratio, net.n, 0.01)
 # print(net.test_four_algs(perm_matrix))
+dir="test_res"
+dir_name = os.makedirs("test_res", exist_ok=True)
+file_name = "data.jason"
+print(dir_name)
+#file_path =  os.path.join(dir_name,file_name)
+data= {"hii":5 ,"what the ell": [5,1,54,5,3,8,5,47,1,755,11]}
+#print(file_path)
+with open("test_res\\ss.json", 'w') as f:
+    json.dump(data, f,sort_keys = True, indent = 4,
+               ensure_ascii = False)
 
 
 
