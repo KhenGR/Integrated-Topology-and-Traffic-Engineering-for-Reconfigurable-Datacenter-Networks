@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf27e421-b6db-4410-9b1c-1d71c036713f" name="Changes" comment="added multiprocessing function to have faster tests. fixed bugs">
-      <change afterPath="$PROJECT_DIR$/plotter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run_tets_script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/multi_proc.py" beforeDir="false" afterPath="$PROJECT_DIR$/multi_proc.py" afterDir="false" />
+    <list default="true" id="bf27e421-b6db-4410-9b1c-1d71c036713f" name="Changes" comment="added added a pltter and a script to run one test. test is saved in a json">
       <change beforePath="$PROJECT_DIR$/scrap_book.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrap_book.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_res/ss.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +146,23 @@
       <option name="project" value="LOCAL" />
       <updated>1718783587798</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added added a pltter and a script to run one test. test is saved in a json">
+      <option name="closed" value="true" />
+      <created>1718794799355</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1718794799355</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added added a pltter and a script to run one test. test is saved in a json">
+      <option name="closed" value="true" />
+      <created>1718794809393</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1718794809393</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -162,7 +174,8 @@
     <MESSAGE value="added the evluation function code" />
     <MESSAGE value="added multiprocessing function to have faster tests" />
     <MESSAGE value="added multiprocessing function to have faster tests. fixed bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="added multiprocessing function to have faster tests. fixed bugs" />
+    <MESSAGE value="added added a pltter and a script to run one test. test is saved in a json" />
+    <option name="LAST_COMMIT_MESSAGE" value="added added a pltter and a script to run one test. test is saved in a json" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -34,10 +34,10 @@ print(dir_name)
 #file_path =  os.path.join(dir_name,file_name)
 data= {"hii":5 ,"what the ell": [5,1,54,5,3,8,5,47,1,755,11]}
 #print(file_path)
-with open("test_res\\ss.json", 'w') as f:
-    json.dump(data, f,sort_keys = True, indent = 4,
-               ensure_ascii = False)
-
+# with open("test_res\\ss.json", 'w') as f:
+#     json.dump(data, f,sort_keys = True, indent = 4,
+#                ensure_ascii = False)
+#
 
 
 #
