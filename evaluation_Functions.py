@@ -33,7 +33,7 @@ class network_eval:
         self.n = n
         self.r = r
         self.rr = rr
-        self.bir = birkDecomp()
+        self.bir = None #birkDecomp()
     def get_all_parms(self):
         return {"n":self.n, "r":self.r, "rd":self.rd}
     def get_rotor_DCT(self, M):
@@ -80,6 +80,8 @@ class network_eval:
 
 def run_tests_flow_number(net, large_ratio,large_load_ratio,total_flows_range):
     res_list = []
+    if net.bir == None:
+        net.bir =birkDecomp()
     for i in total_flows_range:
         total_flows = i
         large_number = np.ceil(total_flows) *large_ratio
