@@ -19,25 +19,30 @@ class json_serialize(json.JSONEncoder):
 
 
 if __name__ == '__main__':
-    n = 64
+    n = 8
+    test_types = ("flow_number", "large_flow_ratio", "large_flow_load")
     #print(multiprocessing.cpu_count())
     x_values = power_range(4, 4 * n * n, 1.3)
     net = network_eval(n=n)
     start_time = time.perf_counter()
-    full_results = multi_run_tests_flow_number(net, 0.2, 0.7, x_values, 7, 28)
+    #full_results = multi_run_tests(net, 0.2, 0.7, x_values, 7, 28, test_types[0])
+    x_values = np.linspace(0.05, 0.95, 19)
+    full_results = multi_run_tests(net,0.2 , x_values, 30, 7, 28, test_types[2])
+    #full_results = multi_run_tests(net,x_values , 0.7, 10, 7, 28, test_types[1])
     end_time = time.perf_counter()
     elapsed_time = end_time - start_time
     print(f"Elapsed time: {elapsed_time} seconds")
-    with open(f"test_res\\n64_test_total_flows_LR02_LLR07_date1906.json", 'w') as f:
-        json.dump(full_results, f, sort_keys=True, indent=4,
-                  ensure_ascii=False,cls=json_serialize)
+    if n == 64:
+        with open(f"test_res\\n64_test_total_flows_LR02_LLR07_date1906.json", 'w') as f:
+            json.dump(full_results, f, sort_keys=True, indent=4,
+                      ensure_ascii=False, cls=json_serialize)
 
     results = full_results["mean_res"]
     name_list = ("DA", "ROT", "PIV")
     for i, row in enumerate(np.transpose(results)):
         plt.plot(x_values, 1 / row, label=f'Curve {name_list[i]}', marker='o', linestyle='-', linewidth=2)
 
-    plt.xscale('log')
+    #plt.xscale('log')
     # Add labels and title
     plt.xlabel('X-axis')
     plt.ylabel('Y-axis')

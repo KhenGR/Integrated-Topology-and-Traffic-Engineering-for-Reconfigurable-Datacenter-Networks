@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf27e421-b6db-4410-9b1c-1d71c036713f" name="Changes" comment="minor fix">
+    <list default="true" id="bf27e421-b6db-4410-9b1c-1d71c036713f" name="Changes" comment="minor fix. added more stat collection from the algorithm">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evaluation_Functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation_Functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/multi_proc.py" beforeDir="false" afterPath="$PROJECT_DIR$/multi_proc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plotter.py" beforeDir="false" afterPath="$PROJECT_DIR$/plotter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_tets_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_tets_script.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scrap_book.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrap_book.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_res/n64_test_total_flows_LR02_LLR07_date1906.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +60,7 @@
     "Python.main.executor": "Run",
     "Python.multi_proc.executor": "Debug",
     "Python.plotter.executor": "Run",
+    "Python.run_tets_script.executor": "Run",
     "Python.scrap_book.executor": "Run",
     "Python.traficGen.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -173,7 +177,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718795040510</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="minor fix. added more stat collection from the algorithm">
+      <option name="closed" value="true" />
+      <created>1718869318888</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1718869318888</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -186,20 +198,26 @@
     <MESSAGE value="added multiprocessing function to have faster tests. fixed bugs" />
     <MESSAGE value="added added a pltter and a script to run one test. test is saved in a json" />
     <MESSAGE value="minor fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor fix" />
+    <MESSAGE value="minor fix. added more stat collection from the algorithm" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor fix. added more stat collection from the algorithm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/run_tets_script.py</url>
-          <line>4</line>
-          <option name="timeStamp" value="35" />
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>40</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>35</line>
-          <option name="timeStamp" value="43" />
+          <url>file://$PROJECT_DIR$/evaluation_Functions.py</url>
+          <line>162</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/plotter.py</url>
+          <line>40</line>
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

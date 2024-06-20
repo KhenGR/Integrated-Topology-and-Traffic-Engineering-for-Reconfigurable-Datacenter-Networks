@@ -31,20 +31,25 @@ def sparsity_mesure(M):
     sparsity = (total_val - non_zero) / total_val
     return sparsity
 
+
 def var_dist_line(arr):
     """this function calculates the variation distance of one row of a matrix"""
     arr = np.array(arr)
-    normalized_mat = arr/np.sum(arr)
+    normalized_mat = arr / np.sum(arr)
     #This is always 1/len(arr) unless something is wrong
     mean = np.mean(normalized_mat)
-    var_dist = np.sum(np.absolute([mean - j for j in normalized_mat]))/2
+    var_dist = np.sum(np.absolute([mean - j for j in normalized_mat])) / 2
     return var_dist
+
+
 def var_dist_mat(M):
     """this function calculates the variation distance of a square matrix with zeros on the diagonal"""
     dim = len(M)
     no_zeros_mat = np.array([np.delete(mat, x) for mat, x, in zip(M, list(range(dim)))])
     var_dist = np.mean([var_dist_line(x) for x in no_zeros_mat])
     return var_dist
+
+
 class network_eval:
     rd: float
     n: int
@@ -88,27 +93,27 @@ class network_eval:
         best_res_pivot = np.min(all_pivot_results)
         best_res_index = np.argmin(all_pivot_results)
         #{"DA":best_res_index+1, "RR":len(alpha)-1-best_res_index}
-        return {"best_res_pivot": best_res_pivot, "piv_index": ( best_res_index+1, len(alpha)-1-best_res_index) }
+        return {"best_res_pivot": best_res_pivot, "piv_index": (best_res_index + 1, len(alpha) - 1 - best_res_index)}
 
     def test_four_algs(self, M, birk_epsilon=0.0001, index=1):
         #get the birkoff decompestion
         #bir = birkDecomp()
         (p, al) = self.bir.birk_decomp(M, birk_epsilon)
 
-        transP = np.transpose(p)
-        totalArrs = [np.transpose(np.mat(transP * al).reshape(self.n, self.n)) for transP, al, in zip(transP, al)]
-        pivot_DCT_res_dict = self.pivot_alg_DCT(totalArrs, al)
-        pivot_DCT=pivot_DCT_res_dict["best_res_pivot"]
+        trans_p = np.transpose(p)
+        total_arrs = [np.transpose(np.mat(transP * al).reshape(self.n, self.n)) for transP, al, in zip(trans_p, al)]
+        pivot_DCT_res_dict = self.pivot_alg_DCT(total_arrs, al)
+        pivot_DCT = pivot_DCT_res_dict["best_res_pivot"]
         index_piv_res = pivot_DCT_res_dict["piv_index"]
         #Send to the rotor the possibliy slightly reduced matrix from the decomp
-        newM = np.sum(totalArrs, axis=0)
-        rotor_DCT = self.get_rotor_DCT(self.r * newM)
+        new_m = np.sum(total_arrs, axis=0)
+        rotor_DCT = self.get_rotor_DCT(self.r * new_m)
 
         #calculate the dct of DA system
         da_DCT = np.sum(al) + len(al) * self.rd
         return {"index": index, "res": [da_DCT, rotor_DCT, np.min((da_DCT, rotor_DCT, pivot_DCT))],
-                "max": np.max(totalArrs), "var_dist": var_dist_mat(np.array(totalArrs)), "BvN_dist": len(al),
-                "sparsity": sparsity_mesure(np.array(totalArrs)),"index_piv_res":index_piv_res}
+                "max": np.max(new_m), "var_dist": var_dist_mat(np.array(new_m)), "BvN_dist": len(al),
+                "sparsity": sparsity_mesure(np.array(new_m)), "piv_div_res": index_piv_res}
 
 
 def run_tests_flow_number(net, large_ratio, large_load_ratio, total_flows_range):
@@ -129,6 +134,43 @@ def run_tests_flow_number(net, large_ratio, large_load_ratio, total_flows_range)
         res_list.append(temp_res.copy())
     return res_list
 
+
+def run_tests_large_flow_load(net, large_ratio, large_load_ratio_range, total_flows):
+    res_list = []
+    if net.bir == None:
+        net.bir = birkDecomp()
+    for i in large_load_ratio_range:
+        large_load_ratio = i
+        large_number = np.ceil(total_flows * large_ratio)
+        #In the case there are not enough large or small flows using the ratio, we set thier number to 1
+        if large_number == 0:
+            large_number = 1
+        small_number = total_flows - large_number
+        if small_number == 0:
+            small_number = 1
+        perm_matrix = traffic_generator(large_number, small_number, large_load_ratio, net.n, 0.01)
+        temp_res = net.test_four_algs(perm_matrix)
+        res_list.append(temp_res.copy())
+    return res_list
+
+
+def run_tests_large_flow_ratio(net, large_ratio_range, large_load_ratio, total_flows):
+    res_list = []
+    if net.bir is None:
+        net.bir = birkDecomp()
+    for i in large_ratio_range:
+        large_ratio = i
+        large_number = np.ceil(total_flows * large_ratio)
+        #In the case there are not enough large or small flows using the ratio, we set thier number to 1
+        if large_number == 0:
+            large_number = 1
+        small_number = total_flows - large_number
+        if small_number == 0:
+            small_number = 1
+        perm_matrix = traffic_generator(large_number, small_number, large_load_ratio, net.n, 0.01)
+        temp_res = net.test_four_algs(perm_matrix)
+        res_list.append(temp_res.copy())
+    return res_list
 # def power_range(a, b, c):
 #     num_steps = int(np.floor(np.log(b / a) / np.log(c))) + 1
 #     # Generate the exponents

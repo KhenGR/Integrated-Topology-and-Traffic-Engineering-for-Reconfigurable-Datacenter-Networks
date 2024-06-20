@@ -83,20 +83,17 @@ import  os
 #
 # # Display the histogram
 # #plt.show()
-def var_dist_line(arr):
-    """this function calculates the variation distance of one row"""
-    arr = np.array(arr)
-    normalized_mat = arr/np.sum(arr)
-    #This is always 1/len(arr) unless something is wrong
-    mean = np.mean(normalized_mat)
-    var_dist = np.sum(np.absolute([mean - j for j in normalized_mat]))/2
-    return var_dist
+
+
+
 
 arr = [5,1,54,5,3,8,5,47,1,755,11]
-mat = traffic_generator(3, 8, 0.7, 8, 0.01)
+mat = traffic_generator(3, 800, 0.7, 64, 0.01)
 
 dim = len(mat)
 no_zeros_mat = np.array([np.delete(mat, x) for mat, x, in zip(mat,list(range(dim)))])
 var_dist = np.mean([var_dist_line(x) for x in no_zeros_mat])
 my_array = np.array([3, 1, -1,4, 1, -10, 5, 9])
-print(np.argmin(my_array))
+
+
+print(sparsity_mesure(mat))
