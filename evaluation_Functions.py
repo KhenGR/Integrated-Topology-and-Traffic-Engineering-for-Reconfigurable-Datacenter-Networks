@@ -3,6 +3,7 @@ import numpy as np
 from traficGen import *
 from julia_birkDecomp import birkDecomp
 
+
 def power_range(a, b, c):
     num_steps = int(np.floor(np.log(b / a) / np.log(c))) + 1
     # Generate the exponents
@@ -11,31 +12,56 @@ def power_range(a, b, c):
     result = a * np.power(c, exponents)
     # Convert the result to a list
     return result.tolist()
-def sort_list_by_other_list(order_list, list_to_sort,rev=False):
+
+
+def sort_list_by_other_list(order_list, list_to_sort, rev=False):
     paired_list = list(zip(order_list, list_to_sort))
     # Sort the pairs based on the first element (order_list)
-   # print("in sort list")
-   # print(paired_list)
-    sorted_pairs = sorted(paired_list,key=lambda tup: tup[0],reverse=rev)
+    # print("in sort list")
+    # print(paired_list)
+    sorted_pairs = sorted(paired_list, key=lambda tup: tup[0], reverse=rev)
     # Extract the sorted elements
     sorted_list = [element for _, element in sorted_pairs]
     return sorted_list
 
 
+def sparsity_mesure(M):
+    non_zero = np.count_nonzero(M)
+    total_val = np.prod(M.shape)
+    sparsity = (total_val - non_zero) / total_val
+    return sparsity
+
+def var_dist_line(arr):
+    """this function calculates the variation distance of one row of a matrix"""
+    arr = np.array(arr)
+    normalized_mat = arr/np.sum(arr)
+    #This is always 1/len(arr) unless something is wrong
+    mean = np.mean(normalized_mat)
+    var_dist = np.sum(np.absolute([mean - j for j in normalized_mat]))/2
+    return var_dist
+def var_dist_mat(M):
+    """this function calculates the variation distance of a square matrix with zeros on the diagonal"""
+    dim = len(M)
+    no_zeros_mat = np.array([np.delete(mat, x) for mat, x, in zip(M, list(range(dim)))])
+    var_dist = np.mean([var_dist_line(x) for x in no_zeros_mat])
+    return var_dist
 class network_eval:
     rd: float
     n: int
     r: float
     rr: float
     bir: birkDecomp
+
     def __init__(self, n=64, rr=0, rd=0.01, r=10000000000):
         self.rd = rd
         self.n = n
         self.r = r
         self.rr = rr
-        self.bir = None #birkDecomp()
+        self.bir = None  #birkDecomp()
+
     def get_all_parms(self):
-        return {"n":self.n, "r":self.r, "rd":self.rd}
+        return {"n": self.n, "r": self.r, "rd": self.rd}
+
     def get_rotor_DCT(self, M):
         #Take maximal line sum
         row_sums = np.sum(M, axis=1)
@@ -50,51 +76,58 @@ class network_eval:
         sorted_alpha = np.array(sorted(alpha, reverse=True))
         sorted_P = sort_list_by_other_list(alpha, P_lis, rev=True)
         cumulative_DCT_DA = np.cumsum(sorted_alpha + self.rd)
-        summrized_matrix = self.r*np.sum(sorted_P, axis=0)
-        zeros_mat = np.zeros((self.n,self.n))
+        summrized_matrix = self.r * np.sum(sorted_P, axis=0)
+        zeros_mat = np.zeros((self.n, self.n))
         cumulative_sums = []
         for i in range(len(sorted_P)):
-           zeros_mat+=self.r*sorted_P[i]
-           cumulative_sums.append(zeros_mat.copy())
+            zeros_mat += self.r * sorted_P[i]
+            cumulative_sums.append(zeros_mat.copy())
         cum_lis = [summrized_matrix - j for j in cumulative_sums]
         cumulative_DCT_rot = [self.get_rotor_DCT(j) for j in cum_lis]
-        all_pivot_results = [ i+j for i, j, in zip(cumulative_DCT_rot, cumulative_DCT_DA)]
-        return np.min(all_pivot_results)
+        all_pivot_results = [i + j for i, j, in zip(cumulative_DCT_rot, cumulative_DCT_DA)]
+        best_res_pivot = np.min(all_pivot_results)
+        best_res_index = np.argmin(all_pivot_results)
+        #{"DA":best_res_index+1, "RR":len(alpha)-1-best_res_index}
+        return {"best_res_pivot": best_res_pivot, "piv_index": ( best_res_index+1, len(alpha)-1-best_res_index) }
 
     def test_four_algs(self, M, birk_epsilon=0.0001, index=1):
-       #get the birkoff decompestion
+        #get the birkoff decompestion
         #bir = birkDecomp()
         (p, al) = self.bir.birk_decomp(M, birk_epsilon)
 
         transP = np.transpose(p)
         totalArrs = [np.transpose(np.mat(transP * al).reshape(self.n, self.n)) for transP, al, in zip(transP, al)]
-        pivot_DCT = self.pivot_alg_DCT(totalArrs, al)
-
+        pivot_DCT_res_dict = self.pivot_alg_DCT(totalArrs, al)
+        pivot_DCT=pivot_DCT_res_dict["best_res_pivot"]
+        index_piv_res = pivot_DCT_res_dict["piv_index"]
         #Send to the rotor the possibliy slightly reduced matrix from the decomp
         newM = np.sum(totalArrs, axis=0)
         rotor_DCT = self.get_rotor_DCT(self.r * newM)
 
         #calculate the dct of DA system
         da_DCT = np.sum(al) + len(al) * self.rd
-        return  {"index": index, "res": [da_DCT, rotor_DCT, np.min((da_DCT,rotor_DCT,pivot_DCT) )]}
+        return {"index": index, "res": [da_DCT, rotor_DCT, np.min((da_DCT, rotor_DCT, pivot_DCT))],
+                "max": np.max(totalArrs), "var_dist": var_dist_mat(np.array(totalArrs)), "BvN_dist": len(al),
+                "sparsity": sparsity_mesure(np.array(totalArrs)),"index_piv_res":index_piv_res}
 
-def run_tests_flow_number(net, large_ratio,large_load_ratio,total_flows_range):
+
+def run_tests_flow_number(net, large_ratio, large_load_ratio, total_flows_range):
     res_list = []
     if net.bir == None:
-        net.bir =birkDecomp()
+        net.bir = birkDecomp()
     for i in total_flows_range:
         total_flows = i
-        large_number = np.ceil(total_flows) *large_ratio
+        large_number = np.ceil(total_flows) * large_ratio
         #In the case there are not enough large or small flows using the ratio, we set thier number to 1
         if large_number == 0:
-            large_number=1
+            large_number = 1
         small_number = total_flows - large_number
         if small_number == 0:
             small_number = 1
         perm_matrix = traffic_generator(large_number, small_number, large_load_ratio, net.n, 0.01)
         temp_res = net.test_four_algs(perm_matrix)
         res_list.append(temp_res.copy())
-    return  res_list
+    return res_list
 
 # def power_range(a, b, c):
 #     num_steps = int(np.floor(np.log(b / a) / np.log(c))) + 1

@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf27e421-b6db-4410-9b1c-1d71c036713f" name="Changes" comment="added added a pltter and a script to run one test. test is saved in a json">
+    <list default="true" id="bf27e421-b6db-4410-9b1c-1d71c036713f" name="Changes" comment="minor fix">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation_Functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation_Functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multi_proc.py" beforeDir="false" afterPath="$PROJECT_DIR$/multi_proc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scrap_book.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrap_book.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_res/ss.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718794809393</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="minor fix">
+      <option name="closed" value="true" />
+      <created>1718795040510</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1718795040510</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -170,12 +181,12 @@
     <MESSAGE value="update" />
     <MESSAGE value="added julia_birkDecomp.py" />
     <MESSAGE value="added evaluationFunctions.py file with some functions" />
-    <MESSAGE value="minor fix" />
     <MESSAGE value="added the evluation function code" />
     <MESSAGE value="added multiprocessing function to have faster tests" />
     <MESSAGE value="added multiprocessing function to have faster tests. fixed bugs" />
     <MESSAGE value="added added a pltter and a script to run one test. test is saved in a json" />
-    <option name="LAST_COMMIT_MESSAGE" value="added added a pltter and a script to run one test. test is saved in a json" />
+    <MESSAGE value="minor fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -185,7 +196,19 @@
           <line>4</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>35</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
 </project>
