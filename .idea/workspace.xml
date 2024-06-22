@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf27e421-b6db-4410-9b1c-1d71c036713f" name="Changes" comment="added most plots and data from the paper. still some problems">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="bf27e421-b6db-4410-9b1c-1d71c036713f" name="Changes" comment="added plot 4 c function. fixed bugs. added documentation">
       <change beforePath="$PROJECT_DIR$/evaluation_Functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation_Functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/julia_birkDecomp.py" beforeDir="false" afterPath="$PROJECT_DIR$/julia_birkDecomp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/multi_proc.py" beforeDir="false" afterPath="$PROJECT_DIR$/multi_proc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plotter.py" beforeDir="false" afterPath="$PROJECT_DIR$/plotter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_tets_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_tets_script.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scrap_book.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrap_book.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_res/test_flow_number_LR02_LLR07_n64.json" beforeDir="false" afterPath="$PROJECT_DIR$/test_res/test_flow_number_LR02_LLR07_n64.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_res/test_large_flow_load_LRR07_FN3000_n64.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_res/test_large_flow_load_LRR07_FN64_n64.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_res/test_large_flow_ratio_LR02_FN3000_n64.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_res/test_large_flow_ratio_LR02_FN64_n64.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/traficGen.py" beforeDir="false" afterPath="$PROJECT_DIR$/traficGen.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718890300422</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="added plot 4 c function. fixed bugs. added documentation">
+      <option name="closed" value="true" />
+      <created>1719066655791</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1719066655791</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -233,7 +229,8 @@
     <MESSAGE value="minor fix" />
     <MESSAGE value="minor fix. added more stat collection from the algorithm" />
     <MESSAGE value="added most plots and data from the paper. still some problems" />
-    <option name="LAST_COMMIT_MESSAGE" value="added most plots and data from the paper. still some problems" />
+    <MESSAGE value="added plot 4 c function. fixed bugs. added documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="added plot 4 c function. fixed bugs. added documentation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

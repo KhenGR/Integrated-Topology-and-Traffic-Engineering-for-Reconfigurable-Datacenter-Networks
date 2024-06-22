@@ -26,7 +26,7 @@ import  os
 # small_number = total_flows-large_number
 # large_load_ratio=0.8
 # perm_matrix = traffic_generator(large_number, small_number, large_load_ratio, net_curr.n, 0.01)
-# print(net_curr.test_four_algs(perm_matrix))
+# print(net_curr.test_three_systems(perm_matrix))
 # dir="test_res"
 # dir_name = os.makedirs("test_res", exist_ok=True)
 # file_name = "data.jason"
