@@ -23,12 +23,12 @@ if __name__ == '__main__':
     test_types = ("flow_number", "large_flow_ratio", "large_flow_load")
     #print(multiprocessing.cpu_count())
     x_values = power_range(4, 4 * n * n, 1.3)
-    net = network_eval(n=n)
+    net = NetworkEval(n=n)
     start_time = time.perf_counter()
-    #full_results = multi_run_tests(net, 0.2, 0.7, x_values, 7, 28, test_types[0])
+    #full_results = multi_run_tests(net_curr, 0.2, 0.7, x_values, 7, 28, test_types[0])
     x_values = np.linspace(0.05, 0.95, 19)
     full_results = multi_run_tests(net,0.2 , x_values, 30, 7, 28, test_types[2])
-    #full_results = multi_run_tests(net,x_values , 0.7, 10, 7, 28, test_types[1])
+    #full_results = multi_run_tests(net_curr,x_values , 0.7, 10, 7, 28, test_types[1])
     end_time = time.perf_counter()
     elapsed_time = end_time - start_time
     print(f"Elapsed time: {elapsed_time} seconds")
@@ -50,15 +50,15 @@ if __name__ == '__main__':
     plt.legend()
 
     plt.show()
-# net = network_eval(n=64)
-# bir = birkDecomp()
-#p_mat = traffic_generator(3, 7, 0.7, net.n, 0.01)
+# net_curr = NetworkEval(n=64)
+# bir = BirkDecomp()
+#p_mat = traffic_generator(3, 7, 0.7, net_curr.n, 0.01)
 # (p, al)=bir.birk_decomp(p_mat,0.001)
 #[100,200,300,400,500,1000,2000]
 
 
-#resi1 = run_tests_flow_number(net, 0.2,0.7,x_values)
-#resi2 = run_tests_flow_number(net, 0.2,0.7,x_values)
+#resi1 = run_tests_flow_number(net_curr, 0.2,0.7,x_values)
+#resi2 = run_tests_flow_number(net_curr, 0.2,0.7,x_values)
 
 #print(power_range(64, 20000, 1.2))
 #results1=[d["res"] for d in resi1]

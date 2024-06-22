@@ -1,6 +1,6 @@
 import numpy as np
 from traficGen import *
-from julia_birkDecomp import birkDecomp
+from julia_birkDecomp import BirkDecomp
 from multi_proc import  *
 from traficGen import *
 import json
@@ -13,11 +13,11 @@ import  os
 # small_number = total_flows - large_number
 #
 #
-# net= network_eval(n=64)
+# net_curr= NetworkEval(n=64)
 # resu = []
 # for i in range(50):
-#     p_mat = traffic_generator( large_number,small_number, large_load_ratio, net.n, 0.01)
-#     resu.append(net.get_rotor_DCT(net.r * p_mat))
+#     p_mat = traffic_generator( large_number,small_number, large_load_ratio, net_curr.n, 0.01)
+#     resu.append(net_curr.get_rr_dct(net_curr.r * p_mat))
 # print(np.mean(resu))
 
 # large_ratio=0.2
@@ -25,8 +25,8 @@ import  os
 # large_number=np.ceil(total_flows) *large_ratio
 # small_number = total_flows-large_number
 # large_load_ratio=0.8
-# perm_matrix = traffic_generator(large_number, small_number, large_load_ratio, net.n, 0.01)
-# print(net.test_four_algs(perm_matrix))
+# perm_matrix = traffic_generator(large_number, small_number, large_load_ratio, net_curr.n, 0.01)
+# print(net_curr.test_four_algs(perm_matrix))
 # dir="test_res"
 # dir_name = os.makedirs("test_res", exist_ok=True)
 # file_name = "data.jason"
@@ -42,7 +42,7 @@ import  os
 
 #
 # n=5
-# bir=birkDecomp()
+# bir=BirkDecomp()
 # #start_time = time.time()
 # perm_matrix = traffic_generator(2,3,0.95,n,0.01)
 # print(perm_matrix)
@@ -87,13 +87,32 @@ import  os
 
 
 
+
 arr = [5,1,54,5,3,8,5,47,1,755,11]
-mat = traffic_generator(3, 800, 0.7, 64, 0.01)
+mat = traffic_generator(1, 3, 0.7, 64, 0.01)
+max_elem = np.max(mat)
 
 dim = len(mat)
 no_zeros_mat = np.array([np.delete(mat, x) for mat, x, in zip(mat,list(range(dim)))])
 var_dist = np.mean([var_dist_line(x) for x in no_zeros_mat])
-my_array = np.array([3, 1, -1,4, 1, -10, 5, 9])
+my_array = np.array([3, 20, -1, 4, 1, -10, 5, 9,7,-10])
+
+file_path_flow_numbers = "test_res\\test_flow_number_LR02_LLR07_n64.json"
+file_path_flow_numbers = file_path_flow_numbers
+with open(file_path_flow_numbers, 'r') as file:
+    full_results = json.load(file)
+
+x_values = full_results["parameters"]["List_of_tested_vals"]
+results = full_results["mean_res"]
+results = np.transpose(results)
+best_res_index = np.argmin(my_array)
+cumsum = np.cumsum(my_array)
+#print(list(results[2]))
+results = full_results["BvN_dist_mean"]
+results = full_results["var_dist_mean"]
+results = full_results["max_mean"]
+results = full_results["da_load_mean"]
+print(list(results))
 
 
-print(sparsity_mesure(mat))
+#print(np.argmin(my_array))

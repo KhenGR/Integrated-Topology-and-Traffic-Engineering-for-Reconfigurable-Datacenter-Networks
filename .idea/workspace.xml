@@ -4,15 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf27e421-b6db-4410-9b1c-1d71c036713f" name="Changes" comment="minor fix. added more stat collection from the algorithm">
+    <list default="true" id="bf27e421-b6db-4410-9b1c-1d71c036713f" name="Changes" comment="added most plots and data from the paper. still some problems">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evaluation_Functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation_Functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/julia_birkDecomp.py" beforeDir="false" afterPath="$PROJECT_DIR$/julia_birkDecomp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/multi_proc.py" beforeDir="false" afterPath="$PROJECT_DIR$/multi_proc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plotter.py" beforeDir="false" afterPath="$PROJECT_DIR$/plotter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run_tets_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_tets_script.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scrap_book.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrap_book.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_res/n64_test_total_flows_LR02_LLR07_date1906.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_res/test_flow_number_LR02_LLR07_n64.json" beforeDir="false" afterPath="$PROJECT_DIR$/test_res/test_flow_number_LR02_LLR07_n64.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_res/test_large_flow_load_LRR07_FN3000_n64.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_res/test_large_flow_load_LRR07_FN64_n64.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_res/test_large_flow_ratio_LR02_FN3000_n64.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_res/test_large_flow_ratio_LR02_FN64_n64.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/traficGen.py" beforeDir="false" afterPath="$PROJECT_DIR$/traficGen.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +60,7 @@
   "keyToString": {
     "Python.asasaxcx.executor": "Run",
     "Python.evaluationFunctions.executor": "Run",
-    "Python.evaluation_Functions.executor": "Run",
+    "Python.evaluation_Functions.executor": "Debug",
     "Python.juliaCodeImport.executor": "Run",
     "Python.julia_imprting.executor": "Run",
     "Python.main.executor": "Run",
@@ -185,8 +191,35 @@
       <option name="project" value="LOCAL" />
       <updated>1718869318888</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added most plots and data from the paper. still some problems">
+      <option name="closed" value="true" />
+      <created>1718890230142</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1718890230142</updated>
+    </task>
+    <task id="LOCAL-00014" summary="added most plots and data from the paper. still some problems">
+      <option name="closed" value="true" />
+      <created>1718890300422</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1718890300422</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Made traffic generator" />
@@ -199,7 +232,8 @@
     <MESSAGE value="added added a pltter and a script to run one test. test is saved in a json" />
     <MESSAGE value="minor fix" />
     <MESSAGE value="minor fix. added more stat collection from the algorithm" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor fix. added more stat collection from the algorithm" />
+    <MESSAGE value="added most plots and data from the paper. still some problems" />
+    <option name="LAST_COMMIT_MESSAGE" value="added most plots and data from the paper. still some problems" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -210,13 +244,8 @@
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/evaluation_Functions.py</url>
-          <line>162</line>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/plotter.py</url>
-          <line>40</line>
+          <line>47</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
