@@ -30,7 +30,7 @@ def plot_figure_flow_numbers_thru(data_file_path):
     if paper_mode is True:
         plt.title('Figure 4(a)')
     plt.legend()
-    plt.savefig('..\\figs\\figure_flow_numbers_thru.pdf')
+    plt.savefig('..\\figs\\figure_flow_numbers_thru.png')
     plt.show()
 
 
@@ -56,7 +56,7 @@ def plot_figure_four_flow_numbers_matrix_measure(data_file_path):
     if paper_mode is True:
         plt.title('Figure 4(b)')
     plt.legend()
-    plt.savefig('..\\figs\\figure_flow_numbers_matrix_measure.pdf')
+    plt.savefig('..\\figs\\figure_flow_numbers_matrix_measure.png')
     plt.show()
 
 def plot_figure_pivot_load(data_file_path):
@@ -83,7 +83,7 @@ def plot_figure_pivot_load(data_file_path):
         plt.title('Figure 4(c)')
     plt.ylim([0, 1])
     plt.legend()
-    plt.savefig('..\\figs\\figure_pivot_load.pdf')
+    plt.savefig('..\\figs\\figure_pivot_load.png')
     plt.show()
 
 
@@ -115,7 +115,7 @@ def plot_figures_large_load_ratio_change(data_file_path, x_title: str):
         sparse_type = 'sparse'
     else:
         sparse_type = 'dense'
-    plt.savefig(f"..\\figs\\figure_{test_name}_load_type_{sparse_type}.pdf")
+    plt.savefig(f"..\\figs\\figure_{test_name}_load_type_{sparse_type}.png")
     plt.show()
 
 
