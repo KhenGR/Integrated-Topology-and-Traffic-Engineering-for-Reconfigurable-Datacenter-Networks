@@ -3,6 +3,7 @@
 ## Description
 Brief description of what the project does.
 
+![git](./figs/figure_flow_numbers_thru.png)
 ## Table of Contents
 1. [Installation](#installation)
 2. [Usage](#usage)
@@ -12,6 +13,6 @@ Brief description of what the project does.
 6. [Acknowledgements](#acknowledgements)
 
 ## Installation
-![git](https://github.com/KhenGR/Orthrus/blob/2bfec0b09ebdcc7316f9016c78f27da2a1e4bec2/figs/figure_flow_numbers_thru.pdf)
+
 ## License
 
