@@ -1,55 +1,66 @@
-from evaluation_Functions import *
-import numpy as np
 import matplotlib.pyplot as plt
-from multi_proc import *
+from src.multi_proc import *
 import time
 import json
+from src.testing_functions import *
 
 
-#import multiprocessing
-class json_serialize(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, np.integer):
-            return int(obj)
-        if isinstance(obj, np.floating):
-            return float(obj)
-        if isinstance(obj, np.ndarray):
-            return obj.tolist()
-        return json.JSONEncoder.default(self, obj)
+def recreate_paper_results():
+    """
+    Running this function will generate all data needed to recreate the results in the paper
+    :return: nothing. data will be saved in "test_res" dir
+    """
+    current_dir = os.getcwd()
+    test_res_dir_name = os.path.join(current_dir, "test_res")
+    # main test
+    run_test_of_total_flow_number_change(test_res_dir_name, 0.2, 0.7)
+    # #Test large flow load variation
+    # #spars
+    run_test_of_large_flow_load_change(test_res_dir_name, 0.2, 64)
+    # #dense
+    run_test_of_large_flow_load_change(test_res_dir_name, 0.2, 3000)
+    # # Test large flow load variation
+    # # spars
+    run_test_of_large_flow_ratio_change(test_res_dir_name, large_load_ratio=0.7, large_flow_number=64)
+    # # dense
+    run_test_of_large_flow_ratio_change(test_res_dir_name, large_load_ratio=0.7, large_flow_number=3000)
 
 
 if __name__ == '__main__':
-    n = 8
-    test_types = ("flow_number", "large_flow_ratio", "large_flow_load")
-    #print(multiprocessing.cpu_count())
-    x_values = power_range(4, 4 * n * n, 1.3)
-    net = NetworkEval(n=n)
-    start_time = time.perf_counter()
-    #full_results = multi_run_tests(net_curr, 0.2, 0.7, x_values, 7, 28, test_types[0])
-    x_values = np.linspace(0.05, 0.95, 19)
-    full_results = multi_run_tests(net,0.2 , x_values, 30, 7, 28, test_types[2])
-    #full_results = multi_run_tests(net_curr,x_values , 0.7, 10, 7, 28, test_types[1])
-    end_time = time.perf_counter()
-    elapsed_time = end_time - start_time
-    print(f"Elapsed time: {elapsed_time} seconds")
-    if n == 64:
-        with open(f"test_res\\n64_test_total_flows_LR02_LLR07_date1906.json", 'w') as f:
-            json.dump(full_results, f, sort_keys=True, indent=4,
-                      ensure_ascii=False, cls=json_serialize)
 
-    results = full_results["mean_res"]
-    name_list = ("DA", "ROT", "PIV")
-    for i, row in enumerate(np.transpose(results)):
-        plt.plot(x_values, 1 / row, label=f'Curve {name_list[i]}', marker='o', linestyle='-', linewidth=2)
 
-    #plt.xscale('log')
-    # Add labels and title
-    plt.xlabel('X-axis')
-    plt.ylabel('Y-axis')
-    plt.title('Curves from Matrix Rows')
-    plt.legend()
-
-    plt.show()
+    recreate_paper_results()
+    # n = 8
+    # test_types = ("flow_number", "large_flow_ratio", "large_flow_load")
+    # #print(multiprocessing.cpu_count())
+    # x_values = power_range(4, 4 * n * n, 1.3)
+    # net = NetworkEval(n=n)
+    # start_time = time.perf_counter()
+    # #full_results = multi_run_tests(net_curr, 0.2, 0.7, x_values, 7, 28, test_types[0])
+    # x_values = np.linspace(0.05, 0.95, 19)
+    # full_results = multi_run_tests(net,0.2 , x_values, 30, 7, 28, test_types[2])
+    # #full_results = multi_run_tests(net_curr,x_values , 0.7, 10, 7, 28, test_types[1])
+    # end_time = time.perf_counter()
+    # elapsed_time = end_time - start_time
+    # print(f"Elapsed time: {elapsed_time} seconds")
+    # if n == 64:
+    #     with open(f"test_res\\n64_test_total_flows_LR02_LLR07_date1906.json", 'w') as f:
+    #         json.dump(full_results, f, sort_keys=True, indent=4,
+    #                   ensure_ascii=False, cls=json_serialize)
+    #
+    # results = full_results["mean_res"]
+    # name_list = ("DA", "ROT", "PIV")
+    # for i, row in enumerate(np.transpose(results)):
+    #     plt.plot(x_values, 1 / row, label=f'Curve {name_list[i]}', marker='o', linestyle='-', linewidth=2)
+    #
+    # #plt.xscale('log')
+    # # Add labels and title
+    # plt.xlabel('X-axis')
+    # plt.ylabel('Y-axis')
+    # plt.title('Curves from Matrix Rows')
+    # plt.legend()
+    #
+    # plt.show()
 # net_curr = NetworkEval(n=64)
 # bir = BirkDecomp()
 #p_mat = traffic_generator(3, 7, 0.7, net_curr.n, 0.01)

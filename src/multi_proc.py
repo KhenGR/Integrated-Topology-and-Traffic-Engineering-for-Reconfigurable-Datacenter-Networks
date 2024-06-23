@@ -1,6 +1,6 @@
-#from multiprocessing #import Process
+# from multiprocessing #import Process
 import multiprocessing
-from evaluation_Functions import *
+from src.evaluation_Functions import *
 
 
 def return_dict_mean_res(key: str, result) -> dict:
@@ -18,8 +18,12 @@ def return_dict_mean_res(key: str, result) -> dict:
     return {key + "_mean": arr_mean}
 
 
-def multi_run_tests(net: NetworkEval, large_ratio: float | np.ndarray, large_load_ratio: float | np.ndarray
-                    , flow_number: float | np.ndarray, processes_num: int, test_num: int, test_type: str) -> dict:
+def multi_run_tests(net: NetworkEval,
+                    large_ratio: float | np.ndarray | list,
+                    large_load_ratio: float | np.ndarray | list,
+                    flow_number: float | np.ndarray | list,
+                    processes_num: int, test_num: int,
+                    test_type: str) -> dict:
     """
     This function runs the experiments from the paper using several cores if possible
     :param net: the NetworkEval object which contains the parameters of the network
@@ -35,7 +39,7 @@ def multi_run_tests(net: NetworkEval, large_ratio: float | np.ndarray, large_loa
         raise TypeError("Only integers are allowed when setting the number of processes")
     results = []
     match test_type:
-        #There are three possible tests possible here: flow_number, large_flow_load, and large_flow_ratio
+        # There are three possible tests possible here: flow_number, large_flow_load, and large_flow_ratio
         case "flow_number":
             x_values = flow_number
             if processes_num > 1:
@@ -45,7 +49,7 @@ def multi_run_tests(net: NetworkEval, large_ratio: float | np.ndarray, large_loa
                     same_arr = [(net, large_ratio, large_load_ratio, x_values)] * test_num
                     results = pool.starmap(run_tests_flow_number, same_arr)
             else:
-                #run each test with a single core.
+                # run each test with a single core.
                 for i in range(test_num):
                     results.append(run_tests_flow_number(net, large_ratio, large_load_ratio, x_values))
         case "large_flow_load":
@@ -77,7 +81,7 @@ def multi_run_tests(net: NetworkEval, large_ratio: float | np.ndarray, large_loa
     for i in range(len(results)):
         reso.append([d["res"] for d in results[i]])
     res_mean = np.mean(np.array(reso), axis=0)
-    #calculte the mean result for each run
+    # Calculate the mean result for each run
     bvn_dis_mean = return_dict_mean_res("BvN_dist", results)
     sparsity_mean = return_dict_mean_res("sparsity", results)
     max_mean = return_dict_mean_res("max", results)
@@ -89,4 +93,3 @@ def multi_run_tests(net: NetworkEval, large_ratio: float | np.ndarray, large_loa
                                                   "List_of_tested_vals": x_values, "test_name": test_type},
              "mean_res": res_mean, "full_result": reso} | bvn_dis_mean | sparsity_mean
             | max_mean | var_mean | piv_res_mean | da_load_mean)
-

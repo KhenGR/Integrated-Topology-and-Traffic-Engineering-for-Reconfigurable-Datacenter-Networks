@@ -1,13 +1,24 @@
 import juliacall
 
 
-#One time run
-##jl.seval("import Pkg")
-##jl.seval("Pkg.add(\"BirkhoffDecomposition\")")
+def install_birkhoff_decomposition_pkg():
+    """
+    This will  (hopefully) install the julia pkg "BirkhoffDecomposition"
+    This requires the installation of the juliacall lib
+    Should be run only once.
+    """
+
+    # One time run
+    jl = juliacall.newmodule("SomeName")
+    jl.seval("import Pkg")
+    jl.seval("Pkg.add(\"BirkhoffDecomposition\")")
+
+
 class BirkDecomp:
     """
     This class is used to calculate the BVN decomposition using the julia lib "BirkhoffDecomposition"
     """
+
     def __init__(self):
         """
         Starts the juliacall module once
