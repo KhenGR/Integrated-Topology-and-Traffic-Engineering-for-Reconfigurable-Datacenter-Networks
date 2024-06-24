@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
 from src.evaluation_Functions import *
 
-paper_mode = True
+# This will print headlines in the figures if true
+PAPER_MODE = True
 
 
 # #some simple functions used to plot  a theortic figure
@@ -37,7 +38,7 @@ def plot_figure_flow_numbers_thru(data_file_path, fig_path=None):
     # Add labels and title
     plt.xlabel(r'Total flows ($n_{f}$)')
     plt.ylabel('Throughput')
-    if paper_mode is True:
+    if PAPER_MODE is True:
         plt.title('Figure 4(a)')
     plt.legend()
     if fig_path is not None:
@@ -65,7 +66,7 @@ def plot_figure_four_flow_numbers_matrix_measure(data_file_path, fig_path=None):
     # Add labels and title
     plt.xlabel(r'Total flows ($n_{f}$)')
     plt.ylabel('Matrix Measure')
-    if paper_mode is True:
+    if PAPER_MODE is True:
         plt.title('Figure 4(b)')
     plt.legend()
     if fig_path is not None:
@@ -94,7 +95,7 @@ def plot_figure_pivot_load(data_file_path, fig_path=None):
     # Add labels and title
     plt.xlabel(r'Total flows ($n_{f}$)')
     plt.ylabel('Demand Fraction')
-    if paper_mode is True:
+    if PAPER_MODE is True:
         plt.title('Figure 4(c)')
     plt.ylim([0, 1])
     plt.fill_between(x_values, results[0], 1, where=(np.array(x_values) >= 0), interpolate=True, color='skyblue',
@@ -129,7 +130,7 @@ def plot_figures_large_load_ratio_change(data_file_path, x_title: str, fig_path=
     plt.ylabel('Throughput')
     plt.ylim([0.18, 1])
     test_name = full_results["parameters"]["test_name"]
-    if paper_mode is True:
+    if PAPER_MODE is True:
         if test_name != "large_flow_load":
             plt.title("Figure 6")
         else:

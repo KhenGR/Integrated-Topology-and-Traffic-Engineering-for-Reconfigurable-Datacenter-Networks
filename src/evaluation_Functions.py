@@ -80,9 +80,9 @@ class NetworkEval:
         """
         This initializes the class NetworkEval with the parameters used in the paper as default
         :param n: number of nodes\ network size
-        :param rr: Round robin reconfiguration time
-        :param rd: Demand aware reconfiguration time
-        :param r: transmission rate
+        :param rr: [sec] Round robin reconfiguration time
+        :param rd: [sec] Demand aware reconfiguration time
+        :param r: [bits/sec] transmission rate
         """
         self.rd = rd
         self.n = n

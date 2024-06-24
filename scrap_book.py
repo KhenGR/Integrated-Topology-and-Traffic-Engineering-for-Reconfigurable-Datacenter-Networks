@@ -99,7 +99,7 @@ import numpy as np
 # file_path_flow_numbers = "test_res\\test_flow_number_LR02_LLR07_n3000.json"
 
 
-config_dict = {"number_of_runs": 28, "paper_mode": True, "number_of_cores": 7}
+config_dict = {"number_of_runs": 28, "PAPER_MODE": True, "number_of_cores": 7}
 # Generate some data as lists
 x = np.linspace(-5, 5, 400).tolist()
 y1 = np.sin(x).tolist()
