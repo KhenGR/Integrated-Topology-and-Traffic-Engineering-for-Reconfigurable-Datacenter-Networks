@@ -56,6 +56,10 @@ directory = "dir_to_save_results"
 run_test_of_total_flow_number_change(directory, large_ratio=0.01, large_load_ratio=0.8, n=32,rd=0.02)
 ```
 
+Running the rest of the code in `main.py` will 
+generate and save paper figures equivalent to figures 4,5 and 6.
+
+
 ## Data 
 
 The folder [test_res](.\test_res) contains 5 `.json` files.
