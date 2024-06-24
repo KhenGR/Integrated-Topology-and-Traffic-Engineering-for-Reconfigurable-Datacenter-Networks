@@ -82,7 +82,7 @@ class NetworkEval:
         :param n: number of nodes\ network size
         :param rr: Round robin reconfiguration time
         :param rd: Demand aware reconfiguration time
-        :param r: trans rate
+        :param r: transmission rate
         """
         self.rd = rd
         self.n = n
@@ -134,10 +134,6 @@ class NetworkEval:
         all_pivot_results = [i + j for i, j, in zip(cumulative_dct_rr, cumulative_dct_da)]
         best_res_pivot = np.min(all_pivot_results)
         best_res_index = np.argmin(all_pivot_results)
-        #da_load = np.sum(sorted_alpha[0:best_res_index+1])
-        #da_load = np.sum(sorted_p[0:best_res_index+1])
-        #rr_load = np.sum(sorted_p[best_res_index+1:])
-        #da_load = da_load / (rr_load+da_load)
         da_load = np.sum(sorted_alpha[0:best_res_index + 1])
         return {"best_res_pivot": best_res_pivot,
                 "piv_index": (best_res_index, len(alpha) - best_res_index),
@@ -161,7 +157,7 @@ class NetworkEval:
         pivot_dct = pivot_dct_res_dict["best_res_pivot"]
         index_piv_res = pivot_dct_res_dict["piv_index"]
         da_load = pivot_dct_res_dict["da_load"]
-        # Send to the RR-sys the possibliy slightly reduced matrix from the decomp
+        # Send to the RR-sys the possibly slightly reduced matrix from the decomposition
         new_m = np.sum(total_arrs, axis=0)
         rr_dct = self.get_rr_dct(self.r * new_m)
         # Calculate the dct of DA system

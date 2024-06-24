@@ -1,6 +1,8 @@
 from src.multi_proc import  *
 from src.traficGen import *
 import json
+import matplotlib.pyplot as plt
+import numpy as np
 
 # large_load_ratio=0.7
 # total_flows=2822
@@ -85,21 +87,52 @@ import json
 
 
 
-arr = [5,1,54,5,3,8,5,47,1,755,11]
-mat = traffic_generator(1, 3, 0.7, 64, 0.01)
-max_elem = np.max(mat)
+# arr = [5,1,54,5,3,8,5,47,1,755,11]
+# mat = traffic_generator(1, 3, 0.7, 64, 0.01)
+# max_elem = np.max(mat)
+#
+# dim = len(mat)
+# no_zeros_mat = np.array([np.delete(mat, x) for mat, x, in zip(mat,list(range(dim)))])
+# var_dist = np.mean([var_dist_line(x) for x in no_zeros_mat])
+# my_array = np.array([3, 20, -1, 4, 1, -10, 5, 9,7,-10])
+#
+# file_path_flow_numbers = "test_res\\test_flow_number_LR02_LLR07_n3000.json"
 
-dim = len(mat)
-no_zeros_mat = np.array([np.delete(mat, x) for mat, x, in zip(mat,list(range(dim)))])
-var_dist = np.mean([var_dist_line(x) for x in no_zeros_mat])
-my_array = np.array([3, 20, -1, 4, 1, -10, 5, 9,7,-10])
 
-file_path_flow_numbers = "test_res\\test_flow_number_LR02_LLR07_n3000.json"
 
-if '64' in file_path_flow_numbers:
-    print(64)
-else:
-    print(3000)
+# Generate some data as lists
+x = np.linspace(-5, 5, 400).tolist()
+y1 = np.sin(x).tolist()
+y2 = (0.1 * np.cos(2 * x)).tolist()
+
+# Convert lists to numpy arrays for fill_between
+x_array = np.array(x)
+y1_array = np.array(y1)
+y2_array = np.array(y2)
+
+# Create a plot
+plt.figure()
+
+# Plot the first curve
+plt.plot(x, y1, label='sin(x)')
+
+# Fill the area between the first curve and x=0
+plt.fill_between(x_array, y1_array, where=(x_array<=0), interpolate=True, color='skyblue', alpha=0.4, label='Area filled to x=0')
+
+# Plot the second curve
+plt.plot(x, y2, label='0.1 * cos(2x)', color='orange')
+
+# Fill the area between the second curve and y=0
+plt.fill_between(x_array, y2_array, where=(y2_array>=0), interpolate=True, color='lightgreen', alpha=0.4, label='Area filled to y=0')
+
+# Add labels and title
+plt.xlabel('x-axis')
+plt.ylabel('y-axis')
+plt.title('Plot with Two Curves and Filled Areas')
+plt.legend()
+
+# Show the plot
+plt.show()
 # file_path_flow_numbers = file_path_flow_numbers
 # with open(file_path_flow_numbers, 'r') as file:
 #     full_results = json.load(file)

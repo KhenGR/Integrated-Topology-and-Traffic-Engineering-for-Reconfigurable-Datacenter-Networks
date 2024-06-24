@@ -1,14 +1,12 @@
-import matplotlib.pyplot as plt
 from src.multi_proc import *
-import time
-import json
 from src.testing_functions import *
+from src.plotter import plot_figure_pivot_load
 
 
 def recreate_paper_results():
     """
     Running this function will generate all data needed to recreate the results in the paper
-    :return: nothing. data will be saved in "test_res" dir
+    :return: Nothing. data will be saved in "test_res" dir
     """
     current_dir = os.getcwd()
     test_res_dir_name = os.path.join(current_dir, "test_res")
@@ -29,7 +27,18 @@ def recreate_paper_results():
 if __name__ == '__main__':
 
 
-    recreate_paper_results()
+    #recreate_paper_results()
+    file_path_flow_numbers = "test_res\\test_flow_number_LR02_LLR07_n64.json"
+
+    file_path_sparse_large_load = "..\\test_res\\test_large_flow_load_LR02_FN64_n64.json"
+    file_path_dense_large_load = "..\\test_res\\test_large_flow_load_LR02_FN3000_n64.json"
+    #
+    file_path_sparse_large_ratio = "..\\test_res\\test_large_flow_ratio_LLR07_FN64_n64.json"
+    file_path_dense_large_ratio = "..\\test_res\\test_large_flow_ratio_LLR07_FN3000_n64.json"
+
+    #Set path to figuers directory
+    figuer_path = os.path.join(os.getcwd(), "figs")
+    plot_figure_pivot_load(file_path_flow_numbers, figuer_path)
     # n = 8
     # test_types = ("flow_number", "large_flow_ratio", "large_flow_load")
     # #print(multiprocessing.cpu_count())

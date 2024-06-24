@@ -4,15 +4,17 @@ This project contains the code used to obtain the results from the paper:
 
 Griner, Chen, and Chen Avin. "Integrated Topology and Traffic Engineering for Reconfigurable Datacenter Networks." arXiv preprint arXiv:2402.09115 (2024). 		
 
-<img src="./figs/figure_flow_numbers_thru.png" alt="Main paper figure" width="400"/>
+It's propose is to allow replication of the results found in the paper and further study into topology engineering of dynamic networks.
+
+
+<img src="./figs/img_2.png" alt="Main paper figure" width="400"/>
 
 ## Table of Contents
 1. [Installation](#installation)
 2. [Usage](#usage)
 3. [Data](#data)
-4. [Contributing](#contributing)
-5. [License](#license)
-6. [Acknowledgements](#acknowledgements)
+4. [License](#license)
+5. [Acknowledgements](#acknowledgements)
 
 ## Installation
 You can create a new conda environment and install the required libraries using the `environment.yml` file.
@@ -25,7 +27,7 @@ Or use the `requirements.txt` to install all dependencies.
 
 This project also requires a julia package called [BirkhoffDecomposition](https://github.com/vvalls/BirkhoffDecomposition.jl/tree/master)
 in order to implement Birkhoff-von-Neumann (BvN) decomposition.
-```conda``
+
 
 After installing [juliacall](https://pypi.org/project/juliacall/). 
 You could run the flowing code, that will install the package into the julia environment.
@@ -37,15 +39,34 @@ jl.seval("Pkg.add(\"BirkhoffDecomposition\")")
 ```
 
 ## Usage
+To recreate all the results found in the paper with _our_ parameters
 In main.py run
 ```python
 recreate_paper_results()
 ```
-To recreate the results in the paper
+The generated results will contain the DCT for each of our three systems (_"BvN-sys"_, _"RR-sys"_, _"COMP-sys"_) as well as more general
+statistics regrading the traffic matrix and the "_pivot_" algorithm.
+
+More generally it is possible to run our experiments with different parameters.
+For example to test our systems with different traffic model parameters (`large_ratio` and `large_load_ratio`), a network with 32 nodes (`n`), and a reconfiguration
+rate (`rd`) of 0.02 seconds you may run
+```python
+from src.testing_functions import *
+directory = "dir_to_save_results"
+run_test_of_total_flow_number_change(directory, large_ratio=0.01, large_load_ratio=0.8, n=32,rd=0.02)
+```
+
 ## Data 
 
-The folder [test_res](.\test_res) contatines 5 `json` files.
+The folder [test_res](.\test_res) contains 5 `.json` files.
 Each having the data for the results of the tests used in the paper.
 
+A full description of their fields can be found in [DATA_README](test_res/DATA_README.md)
+
+
 ## License
+This uses an MIT license
+
+## Acknowledgements
+
 

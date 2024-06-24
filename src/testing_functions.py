@@ -38,6 +38,17 @@ def run_test_of_total_flow_number_change(directory,
                                          r=10000000000,
                                          given_range=(4, 16384, 1.3)
                                          ):
+    """
+    This function runs the expiremnet
+    :param directory:
+    :param large_ratio:
+    :param large_load_ratio:
+    :param n:
+    :param rd:
+    :param r:
+    :param given_range:
+    :return:
+    """
     net = NetworkEval(n=n, rd=rd, r=r)
     (start, stop, coff) = given_range
     x_values = power_range(start, stop, coff)
@@ -88,7 +99,7 @@ def run_test_of_large_flow_ratio_change(directory,
                   ensure_ascii=False, cls=JsonSerialize)
 
 
-number_of_runs = 7
+number_of_runs = 28
 processor_to_use = multiprocessing.cpu_count() - 1
 test_types = ("flow_number", "large_flow_ratio", "large_flow_load")
 
