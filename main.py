@@ -11,12 +11,12 @@ def recreate_paper_results():
     current_dir = os.getcwd()
     test_res_dir_name = os.path.join(current_dir, "test_res")
     # main test
-    run_test_of_total_flow_number_change(test_res_dir_name, 0.2, 0.7)
+    run_test_of_total_flow_number_change(test_res_dir_name, 0.2, 0.7, number_of_tests=NUMBER_OF_RUNS)
     # #Test large flow load variation
     # #spars
-    run_test_of_large_flow_load_change(test_res_dir_name, 0.2, 64)
+    run_test_of_large_flow_load_change(test_res_dir_name, 0.2, 64, number_of_tests=NUMBER_OF_RUNS)
     # #dense
-    run_test_of_large_flow_load_change(test_res_dir_name, 0.2, 3000)
+    run_test_of_large_flow_load_change(test_res_dir_name, 0.2, 3000, number_of_tests=NUMBER_OF_RUNS)
     # # Test large flow load variation
     # # spars
     run_test_of_large_flow_ratio_change(test_res_dir_name, large_load_ratio=0.7, flow_number=64)

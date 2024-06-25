@@ -233,7 +233,7 @@ def run_tests_large_flow_ratio(net_curr, large_ratio_range, large_load_ratio, to
     Tests a given range of "large ratio_range" values as specified in large_ratio_range
     :param net_curr: NetworkEval object
     :param large_ratio_range:  a list with a given_range of the number of large flow ratio  to test
-    :param large_load_ratio_range: a list with a given_range of the large flow load to test
+    :param large_load_ratio: the ratio of the number of large flows
     :param total_flows: total number of flows
     :return: a dict with all of the results
     """

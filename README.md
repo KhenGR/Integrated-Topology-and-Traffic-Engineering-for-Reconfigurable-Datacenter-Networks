@@ -7,14 +7,17 @@ Griner, Chen, and Chen Avin. "Integrated Topology and Traffic Engineering for Re
 It's propose is to allow replication of the results found in the paper and further study into topology engineering of dynamic networks.
 
 
-<img src="./figs/img_2.png" alt="Main paper figure" width="400"/>
+[//]: # (<img src="./figs/img_2.png" alt="Main paper figure" width="400"/>)
+
+![img](./figs/img_2.png)
 
 ## Table of Contents
 1. [Installation](#installation)
 2. [Usage](#usage)
 3. [Data](#data)
 4. [License](#license)
-5. [Acknowledgements](#acknowledgements)
+
+[//]: # (5. [Acknowledgements]&#40;#acknowledgements&#41;)
 
 ## Installation
 You can create a new conda environment and install the required libraries using the `environment.yml` file.
@@ -50,15 +53,19 @@ statistics regrading the traffic matrix and the "_pivot_" algorithm.
 More generally it is possible to run our experiments with different parameters.
 For example to test our systems with different traffic model parameters (`large_ratio` and `large_load_ratio`), a network with 32 nodes (`n`), and a reconfiguration
 rate (`rd`) of 0.02 seconds you may run
+
 ```python
 from src.testing_functions import *
+
 directory = "dir_to_save_results"
-run_test_of_total_flow_number_change(directory, large_ratio=0.01, large_load_ratio=0.8, n=32,rd=0.02)
+run_test_of_total_flow_number_change(directory, large_ratio=0.01, large_load_ratio=0.8, n=32, rd=0.02)
 ```
 
 Running the rest of the code in `main.py` will 
 generate and save paper figures equivalent to figures 4,5 and 6.
 
+It is possible to test each system separately with a single traffic matrix. Please refer to
+documentation.
 
 ## Data 
 
@@ -71,6 +78,6 @@ A full description of their fields can be found in [DATA_README](test_res/DATA_R
 ## License
 This uses an MIT license
 
-## Acknowledgements
+[//]: # (## Acknowledgements)
 
 

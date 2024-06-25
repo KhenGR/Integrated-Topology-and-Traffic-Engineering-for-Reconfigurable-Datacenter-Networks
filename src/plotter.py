@@ -81,9 +81,6 @@ def plot_figure_pivot_load(data_file_path, fig_path=None):
     x_values = full_results["parameters"]["List_of_tested_vals"]
     results = full_results["da_load_mean"]
     results = [results, results]
-    # total_cof_list=full_results["BvN_dist_mean"]
-    # results =np.array(results)/np.array(total_cof_list)
-    # results = [1-np.array(i)/j for i,j , in zip(results,total_cof_list)]
     name_list = (r"$m^{RR}$", r"$m^{DA}$")
     marker_list = ('', '^', 'D', 's')
     color_list = ('#ff7f0e', 'skyblue', '#2ca02c', '#d62728')
@@ -98,6 +95,7 @@ def plot_figure_pivot_load(data_file_path, fig_path=None):
     if PAPER_MODE is True:
         plt.title('Figure 4(c)')
     plt.ylim([0, 1])
+    # Create the filling
     plt.fill_between(x_values, results[0], 1, where=(np.array(x_values) >= 0), interpolate=True, color='skyblue',
                      alpha=0.4)
     plt.fill_between(x_values, results[1], where=(np.array(x_values) >= 0), interpolate=True, color='#ff7f0e',

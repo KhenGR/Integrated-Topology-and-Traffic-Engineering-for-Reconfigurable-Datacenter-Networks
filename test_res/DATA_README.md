@@ -1,21 +1,19 @@
 #  Structure of experiment result jason
 This file describes the structure and each field in the the json files in this folder
 * ### `parameters`: List of parameters used in the test, which includes:
-* ####          `n`: Number of nodes\ network size
-* ####          `rd`: Demand aware reconfiguration time
-* ####         ` r`: Transmission rate
-* ####        `large_ratio`: The ratio of the number of large flows of all flows
-* ####        `large_load_ratio`: The ratio of the load of large flows
-* ####          `number_of_tests`: The number of tests which were run
-* ####         `List_of_tested_vals`: The tested values. This could represent the flow number, large flow load or large flow ratio
-* ####        `test_name`: Which test was used to create this data set
-* ### `full_result`: This is raw DCT result for our three systems. The list has a list for each of our 'number_of_tests' tetes, where each sublist has the same form as "mean_res". (Not used)
+* * ####          `n`: Number of nodes\ network size
+* * ####         `rd`: Demand aware reconfiguration time [sec]
+* * ####         ` r`: Transmission rate [bits\sec]
+* * ####        `large_ratio`: The ratio of the number of large flows of all flows
+* * ####        `large_load_ratio`: The ratio of the load of large flows
+* * ####         `number_of_tests`: The number of tests which were run
+* * ####         `List_of_tested_vals`: The tested values. This could represent the flow number, large flow load or large flow ratio
+* * ####        `test_name`: Which test was used to create this data set
+* ### `full_result`: This is raw DCT result for our three systems. The list has a list for each of our `'number_of_tests'` tetes, where each sublist has the same form as "mean_res". (Not used)
 
-````
-In the following fields each element in position "i" is equivalent to an experiment with List_of_tested_vals[i]
+
+>In the following fields each element in position "i" is equivalent to an experiment with List_of_tested_vals[i]
  in terms of tested parameter. And each result is the mean of "number_of_tests" results.
-````
-
 
 
 

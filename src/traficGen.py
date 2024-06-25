@@ -1,10 +1,5 @@
 from numpy import random
 import numpy as np
-# import scipy as sp
-# import time
-# import random as rd
-# from datetime import datetime
-
 
 def traffic_generator(nl, ns, cl, n, sigma):
     """

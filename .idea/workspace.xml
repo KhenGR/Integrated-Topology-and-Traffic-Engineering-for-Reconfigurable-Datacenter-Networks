@@ -4,15 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf27e421-b6db-4410-9b1c-1d71c036713f" name="Changes" comment="updated README.md figures and data">
+    <list default="true" id="bf27e421-b6db-4410-9b1c-1d71c036713f" name="Changes" comment="small change">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/evaluation_Functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/evaluation_Functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrap_book.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/testing_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/testing_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_res/DATA_README.md" beforeDir="false" afterPath="$PROJECT_DIR$/test_res/DATA_README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" show_ignored="true" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -409,7 +414,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719235688386</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="small change">
+      <option name="closed" value="true" />
+      <created>1719237605219</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1719237605219</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -444,7 +457,8 @@
     <MESSAGE value="fix" />
     <MESSAGE value="updated README.md" />
     <MESSAGE value="updated README.md figures and data" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated README.md figures and data" />
+    <MESSAGE value="small change" />
+    <option name="LAST_COMMIT_MESSAGE" value="small change" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
