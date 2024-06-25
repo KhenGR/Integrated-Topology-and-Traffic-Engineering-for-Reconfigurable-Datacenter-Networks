@@ -9,7 +9,11 @@ It's propose is to allow replication of the results found in the paper and furth
 
 [//]: # (<img src="./figs/img_2.png" alt="Main paper figure" width="400"/>)
 
+<div style="width:100%; margin: auto;">
+
 ![img](./figs/img_2.png)
+
+</div>
 
 ## Table of Contents
 1. [Installation](#installation)
