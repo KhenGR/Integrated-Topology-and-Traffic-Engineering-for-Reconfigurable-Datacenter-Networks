@@ -29,7 +29,7 @@ def plot_figure_flow_numbers_thru(data_file_path, fig_path=None):
     results = full_results["mean_res"]
     name_list = ("BvN-sys", "RR-sys", "COMP-sys:Pivot", "COMP-sys:GTN")
     marker_list = ('D', '^', 'o', 's')
-    color_list = ('#ff7f0e', '#2ca02c',  '#1f77b4', '#d62728') #added GTN
+    color_list = ('#ff7f0e', '#2ca02c', '#1f77b4', '#d62728')  #added GTN
     for i, row in enumerate(np.transpose(results)):
         plt.plot(x_values, 1 / row, label=f'{name_list[i]}', marker=marker_list[i],
                  linestyle='-', linewidth=2, color=color_list[i])
@@ -39,7 +39,7 @@ def plot_figure_flow_numbers_thru(data_file_path, fig_path=None):
     plt.xlabel(r'Total flows ($n_{f}$)')
     plt.ylabel('Throughput')
     if PAPER_MODE is True:
-        plt.title('Figure 4(a)')
+        plt.title('Figure 3(a)')
     plt.legend()
     if fig_path is not None:
         full_fig_path = os.path.join(fig_path, "figure_flow_numbers_thru.png")
@@ -67,7 +67,7 @@ def plot_figure_four_flow_numbers_matrix_measure(data_file_path, fig_path=None):
     plt.xlabel(r'Total flows ($n_{f}$)')
     plt.ylabel('Matrix Measure')
     if PAPER_MODE is True:
-        plt.title('Figure 4(b)')
+        plt.title('Figure 3(b)')
     plt.legend()
     if fig_path is not None:
         full_fig_path = os.path.join(fig_path, "figure_flow_numbers_matrix_measure.png")
@@ -75,11 +75,11 @@ def plot_figure_four_flow_numbers_matrix_measure(data_file_path, fig_path=None):
     plt.show()
 
 
-def plot_figure_pivot_load(data_file_path, fig_path=None, typeCalc = "Pivot"):
+def plot_figure_pivot_load(data_file_path, fig_path=None, typeCalc="Pivot"):
     with open(data_file_path, 'r') as file:
         full_results = json.load(file)
     x_values = full_results["parameters"]["List_of_tested_vals"]
-    if (typeCalc == "Pivot"):
+    if typeCalc == "Pivot":
         results = full_results["da_load_mean"]
     else:
         results = full_results["GTN_da_load_mean"]
@@ -96,7 +96,7 @@ def plot_figure_pivot_load(data_file_path, fig_path=None, typeCalc = "Pivot"):
     plt.xlabel(r'Total flows ($n_{f}$)')
     plt.ylabel('Demand Fraction')
     if PAPER_MODE is True:
-        plt.title('Figure 4(c)')
+        plt.title('Figure 4')
     plt.ylim([0, 1])
     # Create the filling
     plt.fill_between(x_values, results[0], 1, where=(np.array(x_values) >= 0), interpolate=True, color='skyblue',
@@ -109,7 +109,7 @@ def plot_figure_pivot_load(data_file_path, fig_path=None, typeCalc = "Pivot"):
                                 markersize=9, label=name_list[1])
     plt.legend(handles=[red_square, blue_square])
     if fig_path is not None:
-        if (typeCalc == "Pivot"):
+        if typeCalc == "Pivot":
             full_fig_path = os.path.join(fig_path, "figure_pivot_load.png")
         else:
             full_fig_path = os.path.join(fig_path, "figure_GTN_load.png")
@@ -124,12 +124,9 @@ def plot_figures_large_load_ratio_change(data_file_path, x_title: str, fig_path=
 
     x_values = full_results["parameters"]["List_of_tested_vals"]
     results = full_results["mean_res"]
-    # name_list = ("BvN-sys", "RR-sys", "COMP-sys")
-    # marker_list = ('D', '^', 'o')
-    # color_list = ('#2ca02c', '#ff7f0e', '#1f77b4')
     name_list = ("BvN-sys", "RR-sys", "COMP-sys:Pivot", "COMP-sys:GTN")
     marker_list = ('D', '^', 'o', 's')
-    color_list = ('#ff7f0e','#2ca02c',  '#1f77b4', '#d62728')  # added GTN
+    color_list = ('#ff7f0e', '#2ca02c', '#1f77b4', '#d62728')  # added GTN
 
     for i, row in enumerate(np.transpose(results)):
         plt.plot(x_values, 1 / row, label=f'{name_list[i]}', marker=marker_list[i],
@@ -153,4 +150,3 @@ def plot_figures_large_load_ratio_change(data_file_path, x_title: str, fig_path=
         full_fig_path = os.path.join(fig_path, f"figure_{test_name}_load_type_{sparse_type}.png")
         plt.savefig(full_fig_path)
     plt.show()
-

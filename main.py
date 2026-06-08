@@ -26,7 +26,8 @@ def recreate_paper_results():
 
 
 if __name__ == '__main__':
-    # Run this to recreate paper results
+    # Remove comment and run this function to recreate paper results
+    # Due to randomness results may vary slightly each time.
     #recreate_paper_results()
 
     #Get path to results dir

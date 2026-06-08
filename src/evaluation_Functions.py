@@ -135,30 +135,31 @@ class NetworkEval:
         best_res_pivot = np.min(all_pivot_results)
         best_res_index = np.argmin(all_pivot_results)
 
-        da_load = np.sum(sorted_alpha[:best_res_index+1 ]) #/(np.sum(sorted_alpha[:best_res_index+1])
-                                                            #  + np.sum(sorted_alpha[best_res_index+1:]))
+        da_load = np.sum(sorted_alpha[:best_res_index + 1])  #/(np.sum(sorted_alpha[:best_res_index+1])
+        #  + np.sum(sorted_alpha[best_res_index+1:]))
 
         return {"best_res_pivot": best_res_pivot,
                 "piv_index": (best_res_index, len(alpha) - best_res_index),
                 "da_load": da_load}
 
-    def test_three_systems(self, mat, birk_epsilon= 0.0001 ):#0.00001
+    def test_three_systems(self, mat, birk_epsilon=0.0001):
+        #0.00001
         """
         Tests the DCT of our three systems, the demand aware, the round-robin
         and the composite system. With composite, we test two algorithms, Pivot and GTN
         :param mat: The demand matrix
-        :param birk_epsilon: the epsilon of the bvn decomposition
+        :param birk_epsilon: the epsilon of the bvn decomposition. Default set as in paper to 10^-4
         :return:
         """
         # This is typically the performance bottleneck, which is why it is done once for all systems and algs.
         (p, al) = self.bir.birk_decomp(mat, birk_epsilon)
-
-        # The data which is the result of birk_decomp needs to be reshapen into a list of matrices.
         # The output of birk_decomp() is a flat array
+        # The data which is the result of birk_decomp needs to be reshaped into a list of matrices.
+
         trans_p = np.transpose(p)
         total_arrs = [np.transpose(np.mat(transP * al).reshape(self.n, self.n)) for transP, al, in zip(trans_p, al)]
         #Get the GTN result:
-        GTN_dict =self.GTN_alg_dct(al, total_arrs)
+        GTN_dict = self.GTN_alg_dct(al, total_arrs)
         GTN_dct = GTN_dict["GTN_dct"]
         GTN_da_load = GTN_dict["da_load"]
         # Get the pivot result
@@ -171,8 +172,8 @@ class NetworkEval:
         rr_dct = self.get_rr_dct(self.r * new_m)
         # Calculate the dct of DA system
         num_perm = len(al)
-        da_dct = np.sum(al) + num_perm* self.rd
-        # Since we do not test the edge cases inside of the pivot_alg_dct function,
+        da_dct = np.sum(al) + num_perm * self.rd
+        # Since we do not test the edge cases inside the pivot_alg_dct function,
         # we test them here for the load
         if da_dct <= pivot_dct and da_dct <= rr_dct:
             da_load = 1
@@ -181,19 +182,19 @@ class NetworkEval:
         return {"res": [da_dct, rr_dct, np.min((da_dct, rr_dct, pivot_dct)), GTN_dct],
                 "max": np.max(new_m), "var_dist": var_dist_mat(np.array(new_m)), "BvN_dist": len(al),
                 "sparsity": sparsity_measure(np.array(new_m)), "piv_div_res": index_piv_res,
-                "da_load": da_load,"GTN_da_load":GTN_da_load}
+                "da_load": da_load, "GTN_da_load": GTN_da_load}
 
     # Latest version
 
     def GTN_alg_dct(self, alpha, p_lis):
         """
-        this is the GTN alg form the paper.
-        It allocates each permuation to either BvN-sys or RR-sys
+        this is the GTN alg form the paper computer networks version of the paper.
+        It allocates each permutation to either BvN-sys or RR-sys
         :param p_lis: a list of matchings
         :param alpha: a list of coefficients
         :return: results dict
         """
-        #The BvN-sys DCT is just rd*Sum(list of alphas)
+        # The BvN-sys DCT is just rd*Sum(list of alphas).
         da_dct = 0
         da_load = 0
         rr_accum_mat = np.zeros((self.n, self.n))
@@ -207,10 +208,7 @@ class NetworkEval:
 
         #return the GTN DCT
         return {"GTN_dct": da_dct + self.get_rr_dct(rr_accum_mat),
-         "da_load": da_load}
-
-
-
+                "da_load": da_load}
 
 
 def run_tests_flow_number(net_curr: NetworkEval, large_ratio, large_load_ratio, total_flows_range):
@@ -248,7 +246,7 @@ def run_tests_large_flow_load(net_curr, large_ratio, large_load_ratio_range, tot
     :param large_ratio: ratio of large flows of total flows
     :param large_load_ratio_range: a list with a given_range of the large flow load to test
     :param total_flows: total number of flows
-    :return: a dict with all of the results
+    :return: a dict with all the results
     """
 
     res_list = []
@@ -276,7 +274,7 @@ def run_tests_large_flow_ratio(net_curr, large_ratio_range, large_load_ratio, to
     :param large_ratio_range:  a list with a given_range of the number of large flow ratio  to test
     :param large_load_ratio: the ratio of the number of large flows
     :param total_flows: total number of flows
-    :return: a dict with all of the results
+    :return: a dict with all the results
     """
 
     res_list = []
@@ -295,5 +293,3 @@ def run_tests_large_flow_ratio(net_curr, large_ratio_range, large_load_ratio, to
         temp_res = net_curr.test_three_systems(perm_matrix)
         res_list.append(temp_res.copy())
     return res_list
-
-
