@@ -2,13 +2,15 @@
 from src.multi_proc import *
 import json
 import os
+from math import ceil
 
 # Default number of tests to run
 NUMBER_OF_RUNS = 28
 
 # Default number of processors to use
-processor_to_use = multiprocessing.cpu_count() - 1
-
+# Note: Your actual capacity will depend on available memory, since the calculations involve a large number of matrices
+processor_to_use = ceil(multiprocessing.cpu_count() / 3)
+processor_to_use = 8
 # List of possible tests
 test_types = ("flow_number", "large_flow_ratio", "large_flow_load")
 
@@ -64,6 +66,10 @@ def run_test_of_total_flow_number_change(directory,
     (start, stop, coff) = given_range
     x_values = power_range(start, stop, coff)
     x_values = [np.ceil(x) for x in x_values]
+    print("Multicore calculations. \n Using  " + str(processor_to_use) + " processes.\n"
+    " Note: Your actual capacity will depend on available memory,"
+    " since the calculations involve a large number of matrices:")
+
     full_results = multi_run_tests(net, large_ratio, large_load_ratio,
                                    x_values, processor_to_use, number_of_tests, test_types[0])
     with open(os.path.join(directory, f"test_{test_types[0]}_LR{__float_as_string(large_ratio)}"
@@ -97,6 +103,9 @@ def run_test_of_large_flow_load_change(directory,
     net = NetworkEval(n=n, rd=rd, r=r)
     (start, stop, steps) = given_range
     x_values = np.linspace(start, stop, steps)
+    print("Multicore calculations. \n Using  " + str(processor_to_use) + " processes.\n"
+    " Note: Your actual capacity will depend on available memory,"
+    " since the calculations involve a large number of matrices:")
     full_results = multi_run_tests(net, large_ratio, x_values,
                                    flow_number, processor_to_use, number_of_tests, test_types[2])
     with open(os.path.join(directory, f"test_{test_types[2]}_LR{__float_as_string(large_ratio)}"
@@ -130,9 +139,39 @@ def run_test_of_large_flow_ratio_change(directory,
     net = NetworkEval(n=n, rd=rd, r=r)
     (start, stop, steps) = given_range
     x_values = np.linspace(start, stop, steps)
+    print("Multicore calculations. \n Using  " + str(processor_to_use) + " processes.\n"
+    " Note: Your actual capacity will depend on available memory,"
+    " since the calculations involve a large number of matrices:")
     full_results = multi_run_tests(net, x_values, large_load_ratio,
                                    flow_number, processor_to_use, number_of_tests, test_types[1])
     with open(os.path.join(directory, f"test_{test_types[1]}_LLR{__float_as_string(large_load_ratio)}"
                                       f"_FN{__float_as_string(flow_number)}_n{__float_as_string(n)}.json"), 'w') as f:
         json.dump(full_results, f, sort_keys=True, indent=4,
                   ensure_ascii=False, cls=JsonSerialize)
+
+# def run_test_temp(directory,
+#                                         large_load_ratio=0.7,
+#                                         flow_number=64,
+#                                         n=64,
+#                                         rd=0.01,
+#                                         r=10000000000,
+#                                         given_range=(0.05, 0.95, 19),
+#                                         number_of_tests=1
+#                                         ):
+#     """
+#     This function tests our three systems with different large flow number ratio values and runs this for
+#      `number_of_tests` times
+#     :param number_of_tests: The number of times to repeat the tests
+#     :param directory: directory to save the result to
+#     :param large_load_ratio:the ratio of the load of the large flows
+#     :param flow_number: the total number of flows
+#     :param n: number of nodes / network size
+#     :param rd: Demand aware reconfiguration time
+#     :param r: transmission rate
+#     :param given_range: (start, end, steps) for the `np.linspace` function
+#     :return: Nothing. Writes results to file
+#     """
+#     net = NetworkEval(n=n, rd=rd, r=r)
+#     (start, stop, steps) = given_range
+#     x_values = np.linspace(start, stop, steps)
+#     full_results = temptest(net, x_values, 0.5, 20)

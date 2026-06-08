@@ -2,7 +2,13 @@
 ## Description
 This project contains the code used to obtain the results from the paper:
 
-Griner, Chen, and Chen Avin. "Integrated Topology and Traffic Engineering for Reconfigurable Datacenter Networks." arXiv preprint arXiv:2402.09115 (2024). 		
+-Griner, Chen, and Chen Avin. "_Integrated Topology and Traffic Engineering for Reconfigurable Datacenter Networks._" arXiv preprint arXiv:2402.09115 (2024). 		
+
+And the later print version in:
+Chen Griner, Chen Avin,
+"_Integrating topology and traffic engineering to maximize throughput in reconfigurable networks_",
+Computer Networks, Volume 274, 2026, 111803, ISSN 1389-1286,
+https://doi.org/10.1016/j.comnet.2025.111803.
 
 It's propose is to allow replication of the results found in the paper and further study into topology engineering of dynamic networks.
 

@@ -5,12 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf27e421-b6db-4410-9b1c-1d71c036713f" name="Changes" comment="small change">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/orthusPaper.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/orthusPaper.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figs/figure_flow_numbers_matrix_measure.png" beforeDir="false" afterPath="$PROJECT_DIR$/figs/figure_flow_numbers_matrix_measure.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figs/figure_flow_numbers_thru.png" beforeDir="false" afterPath="$PROJECT_DIR$/figs/figure_flow_numbers_thru.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figs/figure_large_flow_load_load_type_dense.png" beforeDir="false" afterPath="$PROJECT_DIR$/figs/figure_large_flow_load_load_type_dense.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figs/figure_large_flow_load_load_type_sparse.png" beforeDir="false" afterPath="$PROJECT_DIR$/figs/figure_large_flow_load_load_type_sparse.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figs/figure_large_flow_ratio_load_type_dense.png" beforeDir="false" afterPath="$PROJECT_DIR$/figs/figure_large_flow_ratio_load_type_dense.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figs/figure_large_flow_ratio_load_type_sparse.png" beforeDir="false" afterPath="$PROJECT_DIR$/figs/figure_large_flow_ratio_load_type_sparse.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/figs/figure_pivot_load.png" beforeDir="false" afterPath="$PROJECT_DIR$/figs/figure_pivot_load.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrap_book.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/evaluation_Functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/evaluation_Functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multi_proc.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/multi_proc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plotter.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/plotter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/testing_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/testing_functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_res/DATA_README.md" beforeDir="false" afterPath="$PROJECT_DIR$/test_res/DATA_README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_res/test_flow_number_LR02_LLR07_n64.json" beforeDir="false" afterPath="$PROJECT_DIR$/test_res/test_flow_number_LR02_LLR07_n64.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_res/test_large_flow_load_LR02_FN3000_n64.json" beforeDir="false" afterPath="$PROJECT_DIR$/test_res/test_large_flow_load_LR02_FN3000_n64.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_res/test_large_flow_load_LR02_FN64_n64.json" beforeDir="false" afterPath="$PROJECT_DIR$/test_res/test_large_flow_load_LR02_FN64_n64.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_res/test_large_flow_ratio_LLR07_FN3000_n64.json" beforeDir="false" afterPath="$PROJECT_DIR$/test_res/test_large_flow_ratio_LLR07_FN3000_n64.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_res/test_large_flow_ratio_LLR07_FN64_n64.json" beforeDir="false" afterPath="$PROJECT_DIR$/test_res/test_large_flow_ratio_LLR07_FN64_n64.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +51,8 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/KhenGR/Orthrus.git&quot;,
-    &quot;accountId&quot;: &quot;f9cea932-bc29-4538-999a-6d6f7189c24e&quot;
+    &quot;url&quot;: &quot;https://github.com/KhenGR/Integrated-Topology-and-Traffic-Engineering-for-Reconfigurable-Datacenter-Networks.git&quot;,
+    &quot;accountId&quot;: &quot;4fba2774-2856-4a10-a92b-9ca4a8321d11&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -55,6 +70,7 @@
     "Python.evaluationFunctions.executor": "Run",
     "Python.evaluation_Functions.executor": "Debug",
     "Python.juliaCodeImport.executor": "Run",
+    "Python.julia_birkDecomp.executor": "Run",
     "Python.julia_imprting.executor": "Run",
     "Python.main.executor": "Run",
     "Python.multi_proc.executor": "Debug",
@@ -64,128 +80,29 @@
     "Python.testing_functions.executor": "Debug",
     "Python.traficGen.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "D:/Users/chen/PycharmProjects/pythonProject2231",
+    "nodejs_package_manager_path": "npm",
     "run.code.analysis.last.selected.profile": "aDefault",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\grine\PycharmProjects\Integrated-Topology-and-Traffic-Engineering-for-Reconfigurable-Datacenter-Networks" />
       <recent name="D:\Users\chen\PycharmProjects\pythonProject2231\figs" />
       <recent name="D:\Users\chen\PycharmProjects\pythonProject2231" />
       <recent name="D:\Users\chen\PycharmProjects\pythonProject2231\.github\workflows" />
       <recent name="D:\Users\chen\PycharmProjects\pythonProject2231\src" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="orthusPaper" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="orthusPaper" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="docs" factoryName="Docutils task">
-      <module name="orthusPaper" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="docutils_input_file" value="" />
-      <option name="docutils_output_file" value="" />
-      <option name="docutils_params" value="" />
-      <option name="docutils_task" value="" />
-      <option name="docutils_open_in_browser" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="docs" factoryName="Sphinx task">
-      <module name="orthusPaper" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="docutils_input_file" value="" />
-      <option name="docutils_output_file" value="" />
-      <option name="docutils_params" value="" />
-      <option name="docutils_task" value="" />
-      <option name="docutils_open_in_browser" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Autodetect">
-      <module name="orthusPaper" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
-      <module name="orthusPaper" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method v="2" />
-    </configuration>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-5b207ade9991-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.17890.14" />
+        <option value="bundled-python-sdk-975db3bf15a3-31b6be0877a2-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.18034.82" />
       </set>
     </attachedChunks>
   </component>
@@ -197,6 +114,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1718021426817</updated>
+      <workItem from="1735629658916" duration="54000" />
     </task>
     <task id="LOCAL-00001" summary="Made traffic generator">
       <option name="closed" value="true" />
@@ -425,6 +343,9 @@
     <option name="localTasksCounter" value="29" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -462,6 +383,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/evaluation_Functions.py</url>
+          <line>172</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

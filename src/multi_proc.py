@@ -89,6 +89,7 @@ def multi_run_tests(net: NetworkEval,
     var_mean = return_dict_mean_res("var_dist", results)
     piv_res_mean = return_dict_mean_res("piv_div_res", results)
     da_load_mean = return_dict_mean_res("da_load", results)
+    GTN_da_load_mean = return_dict_mean_res("GTN_da_load", results)
     return ({"parameters": net.get_all_parms() |
                            {"large_ratio": large_ratio,
                             "large_load_ratio": large_load_ratio,
@@ -102,7 +103,8 @@ def multi_run_tests(net: NetworkEval,
             | max_mean
             | var_mean
             | piv_res_mean
-            | da_load_mean)
+            | da_load_mean
+            | GTN_da_load_mean)
 
 # Result dict structure
 # parameters: List of parameters used in the test
