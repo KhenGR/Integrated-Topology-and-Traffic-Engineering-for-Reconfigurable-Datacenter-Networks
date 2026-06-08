@@ -24,7 +24,7 @@ This file describes the structure and each field in the the json files in this f
 * ### `var_mean`: The variation distance value of the tested traffic matrix
 * ### `piv_res_mean`: A tuple where each element represents the division of the pivot algorithm in terms of the number of permutations sent to da-sys or rr-sys where (da, rr) (Not used)
 * ### `da_load_mean`: The total fraction of the load sent towards da-sys by the pivot algorithm
-
+* ### `GTN_da_load_mean`: The total fraction of the load sent towards da-sys by the GTN algorithm
 ## Partial Example
 ```json
 {
